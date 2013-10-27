@@ -68,3 +68,16 @@ cache.fetch('words').otherwise(function(deferred) {
 ```
 
 In the above code we first attempt to load the cache with `fetch`, and if that doesn't exist then the `otherwise` method will be invoked &ndash; it's up to you to `resolve` or `reject` the promise. If it succeeds then it will go into `then` to output using `response.send`, else it will fall into `fail` and output an empty array (`[]`).
+
+<h3>More Compact?</h3>
+
+The above example may seem quite verbose for *one line*, however it's merely invoking a sequence of methods as is typical with promises. To make it more compact you could place each method into your object.
+
+```javascript
+var responder = {};
+cache
+    .fetch('words')
+    .otherwise(responder.loadCollection)
+    .then(responder.sendResponse)
+    .fail(responder.sendEmptyResponse);
+```
