@@ -127,7 +127,7 @@
             }).fail(function() {
 
                 // Invoke the developer defined callback to retrieve the data.
-                method(deferred);
+                method(deferred, key);
 
                 // When the developer has resolved the promise, we need to store the data in Redis
                 // for next time.

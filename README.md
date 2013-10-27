@@ -44,7 +44,7 @@ RedisCache should now have connected with Redis, and you're ready to begin addin
 Like promises &ndash; which RedisCache uses, you need to setup a method chain for each step. RedisCache uses: `fetch('cache-name')` -> `otherwise(function(deferred) {})` -> `then(function(models) {})` -> `fail(function() {})`.
 
 ```javascript
-cache.fetch('words').otherwise(function(deferred) {
+cache.fetch('words').otherwise(function(deferred, cacheKey) {
 
     // Read the file because we don't have a cache object currently.
     fs.readFile('words.json', 'utf8', function(error, models) {
@@ -81,3 +81,5 @@ cache
     .then(responder.sendResponse)
     .fail(responder.sendEmptyResponse);
 ```
+
+That way you could abstract the `responder` and use that object for each one of your collection calls &ndash; `otherwise` sends the cache key as the second argument for abstraction purposes.
