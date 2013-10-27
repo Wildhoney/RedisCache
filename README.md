@@ -41,7 +41,7 @@ With the above code example we're also invoking `configure` which allows us to s
 
 RedisCache should now have connected with Redis, and you're ready to begin adding Redis caching to your actions.
 
-Like promises &ndash; which RedisCache uses, you need to setup a method chain for each step. RedisCache uses: `fetch('cache-name')` -> `otherwise(function(deferred) {})` -> `then(function(models) {})` -> `fail(function() {})`.
+Like promises &ndash; which RedisCache uses, you need to setup a method chain for each step. RedisCache uses: `fetch('cache-name')` -> `otherwise(function(deferred, cacheKey) {})` -> `then(function(models) {})` -> `fail(function() {})`.
 
 ```javascript
 cache.fetch('words').otherwise(function(deferred, cacheKey) {
