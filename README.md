@@ -1,6 +1,8 @@
 RedisCache
 ==========
 
+<img src="https://travis-ci.org/Wildhoney/RedisCache.png?branch=master" />
+&nbsp;
 <img src="https://badge.fury.io/js/rediscache.png" />
 
 Install with npm: `npm install rediscache`

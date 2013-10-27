@@ -1,5 +1,7 @@
 (function($module) {
 
+    "use strict";
+
     var q       = require('q'),
         redis   = require('redis');
 
