@@ -24,7 +24,7 @@ Getting Started
 Using Node.js you need to first include RedisCache to begin using it.
 
 ```javascript
-var cache = require('../package/redis-cache');
+var cache = require('rediscache');
 ```
 
 RedisCache will establish a connection with the Redis server once you've invoked `connect` &ndash; passing in the `port`, `host`, and `password` &ndash; all of which being optional.
@@ -39,9 +39,9 @@ cache.connect(6379).configure({
 
 With the above code example we're also invoking `configure` which allows us to specify additional options such as `expiry` (default is `86400`).
 
-RedisCache should now have connected with Redis, and you're ready to begin the code into your actions.
+RedisCache should now have connected with Redis, and you're ready to begin adding Redis caching to your actions.
 
-Like promises &ndash; which RedisCache uses, you need to setup a method chain for each step. RedisCache uses: `fetch('cache-name')` -> `otherwise(function() {})` -> `then(function(models) {})` -> `fail(function() {})`.
+Like promises &ndash; which RedisCache uses, you need to setup a method chain for each step. RedisCache uses: `fetch('cache-name')` -> `otherwise(function(deferred) {})` -> `then(function(models) {})` -> `fail(function() {})`.
 
 ```javascript
 cache.fetch('words').otherwise(function(deferred) {
