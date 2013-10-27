@@ -1,5 +1,5 @@
 {
-  "name": "RedisCache",
+  "name": "rediscache",
   "version": "0.0.1",
   "description": "Simple Node.js based Redis cache for storing large collections of data.",
   "main": "index.js",

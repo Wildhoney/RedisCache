@@ -69,6 +69,7 @@
          */
         configure: function configure(options) {
             this.options = options;
+            return this;
         },
 
         /**

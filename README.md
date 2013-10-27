@@ -1,6 +1,10 @@
 RedisCache
 ==========
 
+<img src="https://badge.fury.io/js/rediscache.png" />
+
+Install with npm: `npm install rediscache`
+
 Simple Node.js based Redis cache for storing large collections of data.
 
 RedisCache makes it very simple to asynchronously respond with a collection of models from the cache. It uses <a href="http://en.wikipedia.org/wiki/Method_chaining">method chaining</a> for clarity in conjunction with the <a href="http://en.wikipedia.org/wiki/Futures_and_promises">promise pattern</a>.
