@@ -5,15 +5,15 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            all: ['package/redis-cache.js'],
+            all: ['package/RedisCache.js'],
             options: {
                 jshintrc: '.jshintrc'
             }
         },
         copy: {
             main: {
-                src: 'package/redis-cache.js',
-                dest: 'dist/<%= pkg.buildName %>.js'
+                src: 'package/RedisCache.js',
+                dest: 'dist/<%= pkg.name %>.js'
             }
         }
     });

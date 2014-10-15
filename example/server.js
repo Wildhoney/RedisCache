@@ -1,37 +1,41 @@
-var express = require('express'),
-    fs      = require('fs'),
-    cache   = require('redis-cache'),
-    app     = express();
+(function() {
 
-app.listen(3000);
+    var express = require('express'),
+        fs      = require('fs'),
+        cache   = require('../dist/redis-cache'),
+        app     = express();
 
-// Connect and configure RedisCache!
-cache.connect(6379).configure({
-    expiry: 86400
-});
+    app.listen(3000);
 
-app.get('/', function(request, response) {
+    // Connect and configure RedisCache!
+    cache.connect(6379).configure({
+        expiry: 86400
+    });
 
-    cache.fetch('words').otherwise(function(deferred) {
+    app.get('/', function(request, response) {
 
-        // Read the file because we don't have a cache object currently.
-        fs.readFile('words.json', 'utf8', function(error, models) {
+        cache.fetch('words').otherwise(function(deferred) {
 
-            // Store the data in the Redis cache object.
-            deferred.resolve(JSON.parse(models));
+            // Read the file because we don't have a cache object currently.
+            fs.readFile('words.json', 'utf8', function(error, models) {
+
+                // Store the data in the Redis cache object.
+                deferred.resolve(JSON.parse(models));
+
+            });
+
+        }).then(function(models) {
+
+            // We have the data so we can output it to the browser!
+            response.send(models);
+
+        }).fail(function() {
+
+            // Invoked when you reject the promise above.
+            response.send([]);
 
         });
 
-    }).then(function(models) {
-
-        // We have the data so we can output it to the browser!
-        response.send(models);
-
-    }).fail(function() {
-
-        // Invoked when you reject the promise above.
-        response.send([]);
-
     });
 
-});
+})();

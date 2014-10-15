@@ -1,9 +1,8 @@
 {
   "name": "rediscache",
-  "buildName": "redis-cache",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple Node.js based Redis cache for storing large collections of data.",
-  "main": "dist/redis-cache.js",
+  "main": "dist/rediscache.js",
   "scripts": {
     "test": "grunt test"
   },
@@ -12,13 +11,7 @@
     "url": "https://github.com/Wildhoney/RedisCache.git"
   },
   "keywords": [
-    "redis",
-    "cache",
-    "redis",
-    "redis",
-    "node.js",
-    "node.js",
-    "node.js",
+    "redis cache",
     "cache"
   ],
   "author": "Adam Timberlake",
