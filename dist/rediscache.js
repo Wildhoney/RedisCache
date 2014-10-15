@@ -2,14 +2,14 @@
 
     "use strict";
 
-    var q       = require('q'),
-        redis   = require('redis');
+    var q     = require('q'),
+        redis = require('redis');
 
     /**
      * @module RedisCache
      * @constructor
      */
-    var RedisCache = function() {};
+    var RedisCache = function RedisCache() {};
 
     /**
      * @property prototype
@@ -67,7 +67,7 @@
         /**
          * @method configure
          * @param options {Object}
-         * @return {void}
+         * @return {RedisCache}
          */
         configure: function configure(options) {
             this.options = options;
@@ -77,14 +77,14 @@
         /**
          * @method fetch
          * @param key {String}
-         * @return {Object}
+         * @return {RedisCache}
          */
         fetch: function fetch(key) {
 
             // Create a new deferred for the retrieval of the data from Redis.
-            var deferred    = q.defer();
-            this.promise    = deferred.promise;
-            this.key        = key;
+            var deferred = q.defer();
+            this.promise = deferred.promise;
+            this.key     = key;
 
             // Fetch the content from the Redis server.
             this.client.get(key, function (error, result) {
@@ -110,14 +110,14 @@
         /**
          * @method otherwise
          * @param method {Function}
-         * @return {Object}
+         * @return {Q.promise}
          */
         otherwise: function otherwise(method) {
 
-            var deferred    = q.defer(),
-                redis       = this.client,
-                key         = this.key,
-                options     = this.options;
+            var deferred = q.defer(),
+                redis    = this.client,
+                key      = this.key,
+                options  = this.options;
 
             this.promise.then(function(collection) {
 

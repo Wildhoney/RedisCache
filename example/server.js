@@ -2,7 +2,7 @@
 
     var express = require('express'),
         fs      = require('fs'),
-        cache   = require('../dist/redis-cache'),
+        cache   = require('../dist/rediscache.js'),
         app     = express();
 
     app.listen(3000);
