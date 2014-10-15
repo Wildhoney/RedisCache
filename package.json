@@ -1,9 +1,9 @@
 {
   "name": "rediscache",
   "buildName": "redis-cache",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Simple Node.js based Redis cache for storing large collections of data.",
-  "main": "index.js",
+  "main": "dist/redis-cache.js",
   "scripts": {
     "test": "grunt test"
   },
@@ -27,11 +27,11 @@
     "url": "https://github.com/Wildhoney/RedisCache/issues"
   },
   "dependencies": {
-    "redis": "~0.9.0",
     "express": "~3.4.3",
-    "q": "~0.9.7",
     "grunt": "~0.4.1",
-    "grunt-contrib-uglify": "~0.2.4",
-    "grunt-contrib-jshint": "~0.7.0"
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-jshint": "~0.7.0",
+    "q": "~0.9.7",
+    "redis": "~0.9.0"
   }
 }

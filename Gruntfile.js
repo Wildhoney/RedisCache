@@ -10,22 +10,19 @@ module.exports = function(grunt) {
                 jshintrc: '.jshintrc'
             }
         },
-        uglify: {
-            options: {
-                banner: '/*! <%= pkg.name %> by <%= pkg.author %> created on <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-            },
-            build: {
-                src: ['package/redis-cache.js'],
-                dest: 'dist/<%= pkg.buildName %>.min.js'
+        copy: {
+            main: {
+                src: 'package/redis-cache.js',
+                dest: 'dist/<%= pkg.buildName %>.js'
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
     grunt.registerTask('test', ['jshint']);
-    grunt.registerTask('build', ['uglify']);
-    grunt.registerTask('default', ['jshint', 'uglify']);
+    grunt.registerTask('build', ['copy']);
+    grunt.registerTask('default', ['test', 'build']);
 
 };

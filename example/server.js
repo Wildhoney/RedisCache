@@ -1,6 +1,6 @@
 var express = require('express'),
     fs      = require('fs'),
-    cache   = require('../package/redis-cache'),
+    cache   = require('redis-cache'),
     app     = express();
 
 app.listen(3000);
