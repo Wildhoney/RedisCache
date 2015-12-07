@@ -47,13 +47,14 @@
          * @method connect
          * @param port {Number}
          * @param host {String}
+         * @param redisOptions {Object}
          * @param password {String|Number}
          * @return {RedisCache}
          */
-        connect: function connect(port, host, password) {
+        connect: function connect(port, host, password, redisOptions) {
 
             // Establish the connection to the Redis server.
-            this.client = redis.createClient(port || 6379, host || '127.0.0.1');
+            this.client = redis.createClient(port || 6379, host || '127.0.0.1', redisOptions);
 
             if (password) {
                 // Authorise if a password has been configured.
