@@ -27,6 +27,6 @@
     "express": "~3.4.3",
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "^0.7.0",
-    "grunt-contrib-jshint": "~0.7.0",
+    "grunt-contrib-jshint": "~0.7.0"
   }
 }
